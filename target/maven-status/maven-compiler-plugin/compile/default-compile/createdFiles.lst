@@ -1,0 +1,12 @@
+com\topcareer\usermanagement\dao\UserDao.class
+com\topcareer\usermanagement\dao\UserDaoImpl.class
+com\topcareer\usermanagement\model\User.class
+com\topcareer\usermanagement\util\UserConstants.class
+com\topcareer\usermanagement\util\FileUtil.class
+com\topcareer\usermanagement\common\DaoManager.class
+com\topcareer\usermanagement\infrastructure\RestInit.class
+com\topcareer\usermanagement\ws\UserResource.class
+com\topcareer\usermanagement\common\ServiceManager.class
+com\topcareer\usermanagement\util\UserUtil.class
+com\topcareer\usermanagement\ejbservice\UserServiceRemote.class
+com\topcareer\usermanagement\ejbservice\UserService.class

@@ -1,0 +1,4 @@
+<jboss-web>
+	<context-root>/usermanagement</context-root>
+	<symbolic-linking-enabled>true</symbolic-linking-enabled> 
+</jboss-web>
