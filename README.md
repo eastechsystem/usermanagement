@@ -11,15 +11,24 @@ Q1. Network programming and Object-Oriented Design (General). Implemented Java J
      -> /user/{identifier}     (#fetch user by id)
      -> /user/                 (#fetch all users)
 
+
 => Response Format
     The response will be in JSON with the following attributes:
     ●	id: user ID
     ●	name: user's name
     ●	friends: array of user IDs representing the user's friendships
+    
+    
 => Sample Response
     { 
       "id": 1, 
       "name": "Austin",
       "friends": [2, 5] 
     }
+  
+=> Request pull path:  
+      #serveraddress = localhost:8080
+     
+     -> http://serveraddress/usermanagement/api/v1.0/users/  {identifier}     (#fetch user by id)
+     -> http://serveraddress/usermanagement/api/v1.0/users/                   (#fetch all users by default)
 
