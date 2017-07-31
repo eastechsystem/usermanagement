@@ -80,7 +80,7 @@
 			<p:panel>
 
 				<!-- Edit Dialog Panel -->
-				<p:dialog id="editUserDialog" header="#{userBean.selectedUser.id eq null ? 'New User' : 'Edit User'}" widgetVar="editDialog" resizable="false" showEffect="clip" hideEffect="clip">
+				<p:dialog id="editUserDialog" header="#{userBean.selectedUser.id eq null ? 'New User' : 'Edit User'}" widgetVar="editDialog" resizable="false" modal="true" showEffect="clip" hideEffect="clip">
 					<p:panelGrid id="edit" columns="2" style="width:400px;">
 
 						<h:outputText value="User Identifier" />
