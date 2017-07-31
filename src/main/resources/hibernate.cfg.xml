@@ -7,7 +7,7 @@
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/usersdb</property>
   <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.connection.password">GR911m31</property>
+  <property name="hibernate.connection.password">root</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.listeners.envers.autoRegister">false</property>
   <mapping resource="hbm/com/carma/usermanagement/model/User.hbm.xml"/>
