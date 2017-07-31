@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.carma.usermanagement.model.User" table="User">
+		<id column="Id" name="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+		<property column="Name" name="name" type="java.lang.String" />
+		<property column="Email" name="email" type="java.lang.String" />
+		<property column="Address" name="address" type="java.lang.String" />
+		<!-- <property column="CreateDateTime" name="createDateTime" type="java.util.Date" 
+			/> <property column="ModifyDateTime" name="modifyDateTime" type="java.util.Date" 
+			/> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">Single Page</ui:insert></title>
+	<link href="#{request.contextPath}/resources/assets/css/simple.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+
+	<div id="container">
+		<div id="header">
+			<ui:insert name="header">
+				<h1 class="main-heading">
+					<p:outputLabel value="Single Page For User Management" />
+					<span>#{userBean.loadUsers()}</span>
+				</h1>
+			</ui:insert>
+		</div>
+
+		<h:form id="formTable">
+			<div class="largeText alignLeft" style="min-width: 600px; width: 100%; margin: 0 auto;">
+
+				<p:panel header="Users Details" styleClass="largeText">
+
+					<p:commandLink value="New User" update=":dlgForm:edit" oncomplete="PF('editDialog').show()" style="font-size:10px;">
+						<f:setPropertyActionListener target="#{userBean.selectedUser}" value="#{userBean.user}"/>
+					</p:commandLink>
+
+					<div style="height: 10px;"></div>
+
+
+					<!-- ========================================================================= -->
+					<!-- =========== DATATABLE USER OVERVIEW WITH CUSTOM PAGINATIONS============== -->
+					<!-- ========================================================================= -->
+
+					<p:dataTable var="user" widgetVar="userTable" value="#{userBean.users}" emptyMessage="Table Data is Empty" styleClass="myDataTable"
+					paginator="true" rows="10"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="10,15,25">
+
+						<f:facet name="header" style="background:white;">
+						</f:facet>
+
+						<p:column id="user_id" filterStyle="display:none" headerText="Id">
+							<h:outputLabel value="#{user.id}" />
+						</p:column>
+
+						<p:column id="name_id" filterStyle="display:none" headerText="Name">
+							<h:outputLabel value="#{user.name}" />
+						</p:column>
+
+						<p:column id="email_id" filterStyle="display:none" headerText="Email">
+							<h:outputLabel value="#{user.email}" />
+						</p:column>
+
+						<p:column id="address_id" filterStyle="display:none" headerText="Address">
+							<h:outputLabel value="#{user.address}" />
+						</p:column>
+
+						<p:column id="edit_id" style="width:80px;" styleClass="alignCenter" headerText="Action Edit">
+
+							<p:commandLink value="Edit" update=":dlgForm:edit" oncomplete="PF('editDialog').show()" style="font-size:10px;">
+								<f:setPropertyActionListener target="#{userBean.selectedUser}" value="#{user}" />
+							</p:commandLink>
+						</p:column>
+
+						<p:column id="delete_id" style="width:80px;" styleClass="alignCenter" headerText="Action Delete">
+							<p:commandLink value="Delete" update=":dlgForm:deleteUserdialog" oncomplete="PF('deleteDialog').show()" style="font-size:10px;">
+								<f:setPropertyActionListener target="#{userBean.selectedUser}" value="#{user}" />
+							</p:commandLink>
+						</p:column>
+
+					</p:dataTable>
+				</p:panel>
+			</div>
+		</h:form>
+
+
+		<h:form id="dlgForm">
+			<p:panel>
+
+				<!-- Edit Dialog Panel -->
+				<p:dialog id="editUserDialog" header="#{userBean.selectedUser.id eq null ? 'New User' : 'Edit User'}" widgetVar="editDialog" resizable="false" showEffect="clip" hideEffect="clip">
+					<p:panelGrid id="edit" columns="2" style="width:400px;">
+
+						<h:outputText value="User Identifier" />
+						<h:outputText id="edit_dlg_bngrp" value="#{userBean.selectedUser.id eq null ? 'New User' : userBean.selectedUser.id}" />
+
+						<h:outputText value="Name:" />
+						<p:inputText id="edit_dlg_name" styleClass="width_100" value="#{userBean.selectedUser.name}" />
+
+						<h:outputText value="Email:" />
+						<p:inputText id="edit_dlg_email" styleClass="width_100" value="#{userBean.selectedUser.email}" />
+
+
+						<h:outputText value="Address:" />
+						<p:inputText id="edit_dlg_address" styleClass="width_100" value="#{userBean.selectedUser.address}" />
+
+						<p:commandLink rendered="#{userBean.selectedUser.id ne null}" id="update" value="Update" process="editUserDialog" oncomplete="PF('editDialog').hide()" action="#{userBean.updateUser()}"
+							update="@(.myDataTable)" />
+						<p:commandLink rendered="#{userBean.selectedUser.id eq null}" id="save" value="Save" process="editUserDialog" oncomplete="PF('editDialog').hide()" action="#{userBean.saveUser()}"
+							update="@(.myDataTable)" />
+						<p:commandLink value="Cancel" type="reset" onclick="PF('editDialog').hide()" action="#{userBean.clear()}" />
+
+					</p:panelGrid>
+				</p:dialog>
+
+				<!-- Delete Dialog Panel -->
+				<p:dialog id="deleteUserdialog" header="Delete User" widgetVar="deleteDialog" resizable="false" modal="true">
+					<h:outputText value="Deleting User #{userBean.selectedUser.name} ...." />
+					<p:panelGrid id="delete" columns="2" style="width:400px;">
+						<p:commandButton value="Confirm" process="deleteUserdialog" oncomplete="PF('deleteDialog').hide()" action="#{userBean.deleteUser()}" update="@(.myDataTable)" />
+						<p:commandButton value="Cancel" type="reset" onclick="PF('deleteDialog').hide()" action="#{userBean.clear()}"/>
+					</p:panelGrid>
+				</p:dialog>
+
+			</p:panel>
+		</h:form>
+
+	</div>
+</h:body>
+</html>

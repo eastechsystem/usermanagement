@@ -1,0 +1,55 @@
+a:link, a:visited {
+	background-color: #008CBA;
+	padding: 14px 25px;
+	text-align: center;
+	display: inline-block;
+	color: white !important;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	background-color: #e7e7e7;
+	color: black !important;
+}
+
+;
+}
+.ui-datatable table {
+	border-collapse: collapse !important;
+	width: 100% !important;
+	background-color: #008CBA !important;
+	color: white !important;
+	text-align: left !important;
+	padding: 8px !important;
+}
+
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-footer {
+	background-color: #008CBA !important;
+	color: white !important;
+}
+
+.ui-datatable .ui-datatable-header {
+	text-align: left !important;
+	padding: 8px !important;
+}
+
+.ui-datatable th, .ui-datatable tfoot td {
+	background-color: #008CBA !important;
+	color: white !important;
+}
+
+.ui-datatable .ui-datatable-data td, .ui-datatable .ui-datatable-data-empty td
+	{
+	text-align: left !important;
+	padding: 8px !important;
+}
+
+.main-heading {
+	text-align: center;
+	width: 98%;
+	background: #008CBA;
+	padding: 20px;
+	color: white;
+	border-radius: 8.2px;
+}

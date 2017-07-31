@@ -32,9 +32,20 @@
 		<version.ejb.plugin>2.3</version.ejb.plugin>
 		<jdk.version>1.7</jdk.version>
 		<version.arquillian_core>1.1.9.Final</version.arquillian_core>
+		<hibernate.version>4.2.11.Final</hibernate.version>
+		<version.richfaces>4.5.8.Final</version.richfaces>
+		<version.jsf>2.2.11</version.jsf>
 	</properties>
 	
 	<dependencies>
+		
+		<!-- Hibernate ORM -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
 		<!-- EJB APIs Start -->
 		<dependency>
 			<groupId>javax.ejb</groupId>
@@ -88,6 +99,55 @@
 			<version>9.0.1.Final</version>
 		</dependency>
 		<!-- Wildfly Client BOM + EJB Specs + APIs End -->
+		
+		<!-- JSF + Richfaces + Servlet APIs Start -->
+
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>${version.jsf}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>${version.jsf}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.richfaces</groupId>
+			<artifactId>richfaces</artifactId>
+			<version>${version.richfaces}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>1.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jsp-api</artifactId>
+					<groupId>javax.servlet.jsp</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+		<dependency>
+		    <groupId>org.primefaces</groupId>
+		    <artifactId>primefaces</artifactId>
+		    <version>5.3</version>
+		</dependency>
+
+		<!-- JSF + Richfaces + Servlet APIs End -->
 		
 	</dependencies>
 	
