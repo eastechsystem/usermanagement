@@ -32,7 +32,7 @@
 		<version.ejb.plugin>2.3</version.ejb.plugin>
 		<jdk.version>1.7</jdk.version>
 		<version.arquillian_core>1.1.9.Final</version.arquillian_core>
-		<hibernate.version>4.2.11.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<version.richfaces>4.5.8.Final</version.richfaces>
 		<version.jsf>2.2.11</version.jsf>
 	</properties>
